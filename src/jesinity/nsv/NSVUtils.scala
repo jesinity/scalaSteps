@@ -9,7 +9,6 @@ package jesinity.nsv
  */
 
 import scala.collection.JavaConversions._
-import it.jesinity.nsv.NSV
 
 object NSVUtils {
 
@@ -41,5 +40,9 @@ object NSVUtils {
     l.getList.add(new NSV(name, value));
   }
 
+
+  def convertToMap(l:NSVList): Map[String,String] = {
+    l.getList map { t => (t.name, t.value) } toMap
+  }
 
 }
